@@ -114,7 +114,7 @@ HEX-CyberSphere/
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/yourusername/HEX-CyberSphere.git
+git clone https://github.com/BluHExH/HEX-CyberSphere.git
 cd HEX-CyberSphere
 ```
 
