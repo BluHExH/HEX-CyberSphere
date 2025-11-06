@@ -1,0 +1,102 @@
+version: '3.8'
+
+services:
+  # Python Core Engine
+  python-core:
+    build: .
+    container_name: hex-python-core
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./core_engine:/app/core_engine
+      - ./config:/app/config
+      - ./logs:/app/logs
+      - ./database:/app/database
+    environment:
+      - PYTHONPATH=/app
+    command: python3 core_engine/automation_manager.py
+    networks:
+      - hex-network
+
+  # Java REST API Service
+  java-api:
+    build: .
+    container_name: hex-java-api
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./java_service:/app/java_service
+      - ./logs:/app/logs
+    environment:
+      - JAVA_OPTS=-Xmx512m
+    command: mvn spring-boot:run
+    working_dir: /app/java_service
+    networks:
+      - hex-network
+
+  # Node.js Event System
+  node-events:
+    build: .
+    container_name: hex-node-events
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./node_events:/app/node_events
+      - ./logs:/app/logs
+    environment:
+      - NODE_ENV=production
+    command: npm start
+    working_dir: /app/node_events
+    networks:
+      - hex-network
+
+  # Go Microservice
+  go-microservice:
+    build: .
+    container_name: hex-go-microservice
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./go_microservice:/app/go_microservice
+      - ./logs:/app/logs
+    command: ./go_microservice/main
+    working_dir: /app/go_microservice
+    networks:
+      - hex-network
+
+  # Web Dashboard
+  web-dashboard:
+    build: .
+    container_name: hex-web-dashboard
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./web_dashboard:/app/web_dashboard
+      - ./logs:/app/logs
+    command: python3 -m http.server 8080
+    working_dir: /app/web_dashboard
+    networks:
+      - hex-network
+
+  # Database (SQLite for simplicity)
+  database:
+    image: postgres:15-alpine
+    container_name: hex-database
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: hex_cybersphere
+      POSTGRES_USER: hex_user
+      POSTGRES_PASSWORD: hex_password
+    volumes:
+      - hex-db-data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - hex-network
+
+volumes:
+  hex-db-data:
+
+networks:
+  hex-network:
+    driver: bridge

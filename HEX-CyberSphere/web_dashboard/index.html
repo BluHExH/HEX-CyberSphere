@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEX-CyberSphere Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>⚡ HEX-CyberSphere</h1>
+                <p>Universal Multi-Language Automation Framework</p>
+            </div>
+            <div class="status">
+                <span id="system-status" class="status-indicator online">● Online</span>
+                <span id="connection-status">Connected</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+        <div class="container">
+            <!-- System Overview -->
+            <section class="overview">
+                <h2>System Overview</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>CPU Usage</h3>
+                        <div class="metric-value" id="cpu-usage">0%</div>
+                        <div class="progress-bar">
+                            <div class="progress" id="cpu-progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Memory</h3>
+                        <div class="metric-value" id="memory-usage">0%</div>
+                        <div class="progress-bar">
+                            <div class="progress" id="memory-progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Active Tasks</h3>
+                        <div class="metric-value" id="active-tasks">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Connected Services</h3>
+                        <div class="metric-value" id="connected-services">0</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Real-time Data -->
+            <section class="realtime">
+                <h2>Real-time Data</h2>
+                <div class="chart-container">
+                    <canvas id="system-chart"></canvas>
+                </div>
+            </section>
+
+            <!-- Task Controls -->
+            <section class="controls">
+                <h2>Task Controls</h2>
+                <div class="control-panel">
+                    <div class="control-group">
+                        <label for="task-type">Task Type:</label>
+                        <select id="task-type">
+                            <option value="ai_process">AI Processing</option>
+                            <option value="security_scan">Security Scan</option>
+                            <option value="web_automation">Web Automation</option>
+                            <option value="data_parse">Data Parsing</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="task-target">Target:</label>
+                        <input type="text" id="task-target" placeholder="Enter target (URL, IP, etc.)">
+                    </div>
+                    <button id="execute-task" class="btn primary">Execute Task</button>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="activity">
+                <h2>Recent Activity</h2>
+                <div class="activity-log" id="activity-log">
+                    <div class="log-entry">
+                        <span class="timestamp">System initialized</span>
+                        <span class="message">HEX-CyberSphere dashboard loaded</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>HEX-CyberSphere v1.0.0 | Universal Multi-Language Automation Framework</p>
+            <p>Python | Java | Node.js | Go | C++ | HTML | CSS | JavaScript | YAML | SQL</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

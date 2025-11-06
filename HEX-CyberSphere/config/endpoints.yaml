@@ -1,0 +1,58 @@
+# HEX-CyberSphere API Endpoints Configuration
+
+endpoints:
+  - name: "Get System Status"
+    url: "/api/status"
+    method: "GET"
+    description: "Retrieve current system status"
+    enabled: true
+    auth_required: false
+
+  - name: "Execute Automation Task"
+    url: "/api/tasks/execute"
+    method: "POST"
+    description: "Execute an automation task"
+    enabled: true
+    auth_required: true
+
+  - name: "Get Task History"
+    url: "/api/tasks/history"
+    method: "GET"
+    description: "Retrieve task execution history"
+    enabled: true
+    auth_required: true
+
+  - name: "Scan Security Vulnerabilities"
+    url: "/api/security/scan"
+    method: "POST"
+    description: "Perform security scan on target"
+    enabled: true
+    auth_required: true
+
+  - name: "Get System Logs"
+    url: "/api/logs"
+    method: "GET"
+    description: "Retrieve system logs"
+    enabled: true
+    auth_required: true
+
+  - name: "Web Automation"
+    url: "/api/web/automate"
+    method: "POST"
+    description: "Execute web automation workflow"
+    enabled: true
+    auth_required: true
+
+  - name: "AI Processing"
+    url: "/api/ai/process"
+    method: "POST"
+    description: "Process data with AI models"
+    enabled: true
+    auth_required: true
+
+  - name: "Get Real-time Data"
+    url: "/api/realtime/data"
+    method: "GET"
+    description: "Get real-time system data"
+    enabled: true
+    auth_required: false

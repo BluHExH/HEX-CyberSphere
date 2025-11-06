@@ -1,0 +1,17 @@
+total 32
+drwxr-xr-x 11 root root 4096 Nov  6 17:07 .
+drwxr-xr-x  5 root root  111 Nov  6 17:07 ..
+-rw-r--r--  1 root root 2678 Nov  6 17:02 Dockerfile
+-rw-r--r--  1 root root 1079 Nov  6 17:07 LICENSE
+-rw-r--r--  1 root root 7374 Nov  6 17:11 README.md
+drwxr-xr-x  2 root root   85 Nov  6 16:42 config
+drwxr-xr-x  2 root root  179 Nov  6 17:09 core_engine
+drwxr-xr-x  2 root root  126 Nov  6 16:57 cpp_engine
+drwxr-xr-x  2 root root   30 Nov  6 17:10 database
+-rw-r--r--  1 root root 2205 Nov  6 17:06 docker-compose.yml
+drwxr-xr-x  2 root root   53 Nov  6 16:54 go_microservice
+drwxr-xr-x  3 root root   78 Nov  6 16:51 java_service
+-rw-r--r--  1 root root 6300 Nov  6 17:04 nginx.conf
+drwxr-xr-x  2 root root  120 Nov  6 16:53 node_events
+drwxr-xr-x  2 root root  142 Nov  6 16:41 scripts
+drwxr-xr-x  2 root root  121 Nov  6 17:01 web_dashboard

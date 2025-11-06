@@ -1,0 +1,32 @@
+# HEX-CyberSphere Task Scheduler Configuration
+
+schedule:
+  - name: "System Health Check"
+    cron: "*/5 * * * *"
+    command: "python3 ../core_engine/automation_manager.py health_check"
+    enabled: true
+    description: "Check system health every 5 minutes"
+
+  - name: "Log Cleanup"
+    cron: "0 2 * * *"
+    command: "bash ../scripts/clean_logs.sh"
+    enabled: true
+    description: "Clean old logs daily at 2 AM"
+
+  - name: "Security Scan"
+    cron: "0 3 * * 0"
+    command: "python3 ../core_engine/security_scanner.py full_scan"
+    enabled: true
+    description: "Perform full security scan every Sunday at 3 AM"
+
+  - name: "Database Backup"
+    cron: "0 1 * * *"
+    command: "sqlite3 ../database/hex_data.db .dump > ../backups/hex_data_$(date +\%Y\%m\%d).sql"
+    enabled: true
+    description: "Backup database daily at 1 AM"
+
+  - name: "Report Generation"
+    cron: "0 4 * * 1"
+    command: "python3 ../core_engine/notifier.py generate_report"
+    enabled: true
+    description: "Generate weekly report every Monday at 4 AM"

@@ -1,0 +1,61 @@
+{
+  "system": {
+    "name": "HEX-CyberSphere",
+    "version": "1.0.0",
+    "environment": "production",
+    "log_level": "INFO"
+  },
+  "services": {
+    "python_core": {
+      "host": "localhost",
+      "port": 5000,
+      "enabled": true
+    },
+    "java_api": {
+      "host": "localhost",
+      "port": 8081,
+      "enabled": true
+    },
+    "node_events": {
+      "host": "localhost",
+      "port": 3000,
+      "enabled": true
+    },
+    "go_microservice": {
+      "host": "localhost",
+      "port": 8082,
+      "enabled": true
+    },
+    "web_dashboard": {
+      "host": "localhost",
+      "port": 8080,
+      "enabled": true
+    }
+  },
+  "database": {
+    "type": "sqlite",
+    "path": "./database/hex_data.db"
+  },
+  "security": {
+    "encryption_key": "hex-cybersphere-secret-key-2024",
+    "jwt_secret": "hex-cybersphere-jwt-secret-2024"
+  },
+  "notifications": {
+    "discord": {
+      "enabled": false,
+      "webhook_url": ""
+    },
+    "telegram": {
+      "enabled": false,
+      "bot_token": "",
+      "chat_id": ""
+    },
+    "email": {
+      "enabled": false,
+      "smtp_server": "",
+      "port": 587,
+      "username": "",
+      "password": ""
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "hex-cybersphere-node-events",
+  "version": "1.0.0",
+  "description": "Node.js Event System for HEX-CyberSphere",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo &quot;Error: no test specified&quot; && exit 1"
+  },
+  "keywords": [
+    "automation",
+    "events",
+    "realtime",
+    "cybersphere"
+  ],
+  "author": "HEX-CyberSphere Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "puppeteer": "^21.0.0",
+    "axios": "^1.4.0",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
